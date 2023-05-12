@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { gsap, Power3 } from 'gsap-trial';
+import { gsap, Power3 } from 'gsap';
 
 import poolImage from '../../images/model/2/001.jpeg';
 

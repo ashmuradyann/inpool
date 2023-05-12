@@ -1,5 +1,5 @@
 import { useEffect, useLayoutEffect, useRef } from "react";
-import gsap, { Power3 } from 'gsap-trial';
+import gsap, { Power3 } from 'gsap';
 import { ScrollTrigger } from "gsap-trial/ScrollTrigger";
 import { ScrollSmoother } from "gsap-trial/ScrollSmoother";
 import Scrollbar from 'smooth-scrollbar';

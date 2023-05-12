@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import { gsap } from 'gsap-trial';
+import { gsap } from 'gsap';
 
 import PoolImage from './PoolImage';
 
