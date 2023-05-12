@@ -1,0 +1,32 @@
+header {
+  width: 100%;
+  padding: 30px 56px;
+  z-index: 1;
+
+  a {
+    img {
+      width: 230px;
+      filter: grayscale(100%);
+      transition: .3s;
+    }
+    
+    &:hover img {
+      filter: grayscale(0%);
+    }
+  }
+
+  .header-right {
+    .header-phone {
+      margin-right: 27px;
+      font-size: 1rem;
+      transition: color 0.15s ease-in-out;
+      pointer-events: all;
+      font-weight: 600;
+      color: var(--color-text-accent);
+
+      &:hover {
+        color: var(--color-text);
+      }
+    }
+  }
+}
