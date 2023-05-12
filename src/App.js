@@ -1,7 +1,9 @@
 import { useEffect, useLayoutEffect, useRef } from "react";
 import gsap, { Power3 } from 'gsap';
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { ScrollSmoother } from "gsap/ScrollSmoother";
+import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
+// import { ScrollSmoother } from "gsap/dist/ScrollSmoother";
+import LocomotiveScroll from 'locomotive-scroll'
+import { LocomotiveScrollProvider } from "react-locomotive-scroll";
 import Scrollbar from 'smooth-scrollbar';
 import MouseFollower from "mouse-follower";
 
@@ -9,11 +11,18 @@ import Header from "./components/header/Header";
 import FirstPool from "./components/first-pool/FirstPool";
 import SecondPool from "./components/second-pool/SecondPool";
 
-gsap.registerPlugin(ScrollTrigger, ScrollSmoother)
+// gsap.registerPlugin(ScrollTrigger, ScrollSmoother)
+gsap.registerPlugin(ScrollTrigger)
 
 const App = () => {
   const wrapperRef = useRef()
-  const smoother = useRef()
+  const containerRef = useRef()
+
+  // настройки locomotive-scroll
+  // const options = {
+  //   smooth: true,
+  //   // multiplier: 0,
+  // }
 
   useLayoutEffect(() => {
     MouseFollower.registerGSAP(gsap);
@@ -22,6 +31,14 @@ const App = () => {
       speed: 0.5,
       activeState: "mf-cursor-mousedown",
     });
+
+    // это lib locomotive-scroll 
+    // const scroll = new LocomotiveScroll({
+    //   el: document.querySelector('.wrapper'),
+    //   smooth: true,
+    //   multiplier: 0,
+    //   scrollbarClass: "c-scrollbar"
+    // });
 
     [...document.querySelectorAll("a"), ...document.querySelectorAll(".img-dot")].forEach((el) => {
       el.addEventListener("mouseenter", () => {
@@ -37,17 +54,24 @@ const App = () => {
         cursor.removeState('-down');
       })
     })
-
+    // это lib smooth-scrollbar
     // Scrollbar.init(wrapperRef.current, {
-    //   damping: 0.07,
-    //   thumbMinSize: "100",
-    //   alwaysShowTracks: true,
-    // })
-
-    const ctx = gsap.context(() => {
-      smoother.current = ScrollSmoother.create({
-        smooth: 1,
-        effects: true,
+      //   damping: 0.07,
+      //   thumbMinSize: "100",
+      //   alwaysShowTracks: true,
+      // })
+      
+      const ctx = gsap.context(() => {
+      // это lib ScrollSmoother с gsap не получился импортировать
+      // smoother.current = ScrollSmoother.create({
+      //   smooth: 1,
+      //   effects: true,
+      // });
+      ScrollTrigger.create({
+        trigger: '.wrapper',
+        pin: true,
+        start: '0',
+        end: 'bottom',
       });
       ScrollTrigger.create({
         trigger: '.first-pool-img-wrapper',
@@ -83,11 +107,13 @@ const App = () => {
   }, []);
 
   return (
-    <div ref={wrapperRef} className="wrapper flex-column">
+    // <LocomotiveScrollProvider options={options} containerRef={containerRef}>
+    <div data-scroll-container ref={wrapperRef} className="wrapper flex-column">
       <Header />
       <FirstPool />
       <SecondPool />
     </div>
+    // </LocomotiveScrollProvider>
   )
 }
 
