@@ -20,6 +20,14 @@ const PoolImage = () => {
       }
     }
 
+    setTimeout(() => {
+      images.forEach((picture) => {
+        const img = new Image();
+        img.src = picture.fileName;
+      });
+      console.log("loaded")
+    }, 100)
+
     window.addEventListener('scroll', (e) => {
       let imageNumber;
       if (window.pageYOffset < 6000) {

@@ -24,6 +24,10 @@ const App = () => {
   //   // multiplier: 0,
   // }
 
+  // useEffect(() => {
+  //   console.log("loaded")
+  // }, [])
+
   useLayoutEffect(() => {
     MouseFollower.registerGSAP(gsap);
     const cursor = new MouseFollower({
