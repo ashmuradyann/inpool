@@ -5,7 +5,7 @@ import PoolImage from './PoolImage';
 
 import './second-pool.scss';
 
-const SecondPool = ({ smoothScroll }) => {
+const SecondPool = ({ smoothScroll, setLoaded }) => {
   useEffect(() => {
     gsap
       .timeline({
@@ -110,7 +110,7 @@ const SecondPool = ({ smoothScroll }) => {
             <div data-text="Циркуляционный насос системы автоматической очистки бассейна Vantage" className="img-dot img-dot-10"></div>
             <div data-text="Коллектор автоматической системы очистки бассейна Vantage" className="img-dot img-dot-11"></div>
           </div>
-          <PoolImage smoothScroll={smoothScroll} />
+          <PoolImage smoothScroll={smoothScroll} setLoaded={setLoaded} />
         </div>
       </div>
     </>

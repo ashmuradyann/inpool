@@ -19,10 +19,11 @@ const PoolImage = ({ smoothScroll }) => {
         images.push(require(`../../images/model/1/${i}.jpg`));
       }
     }
-
-    images.forEach((picture) => {
+    
+    images.forEach((picture, i) => {
       const img = new Image();
-      img.src = picture.fileName;
+      img.src = picture;
+      img.onload = () => console.log(i, "loaded")
     });
 
     smoothScroll.addListener((e) => {
