@@ -24,11 +24,8 @@
 .second-pool-wrapper {
   width: 100%;
   position: absolute;
-  // z-index: -1;
   height: 3400px;
   top: 12600px;
-  // left: 50%;
-  // transform: translate(-50%, -50%);
 
   .second-pool-img-wrapper {
     width: 100%;
@@ -42,7 +39,6 @@
       z-index: 1;
 
       .img-dot {
-        // z-index: 999999;
         position: absolute;
         width: 60px;
         height: 60px;

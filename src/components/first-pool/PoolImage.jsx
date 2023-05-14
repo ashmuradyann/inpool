@@ -3,7 +3,7 @@ import { gsap } from 'gsap';
 
 import poolImage from '../../images/model/1/001.jpg';
 
-const PoolImage = () => {
+const PoolImage = ({ smoothScroll }) => {
   const [image, setImage] = useState(poolImage);
 
   useEffect(() => {
@@ -20,23 +20,20 @@ const PoolImage = () => {
       }
     }
 
-    setTimeout(() => {
-      images.forEach((picture) => {
-        const img = new Image();
-        img.src = picture.fileName;
-      });
-      console.log("loaded")
-    }, 100)
+    images.forEach((picture) => {
+      const img = new Image();
+      img.src = picture.fileName;
+    });
 
-    window.addEventListener('scroll', (e) => {
+    smoothScroll.addListener((e) => {
       let imageNumber;
-      if (window.pageYOffset < 6000) {
-        imageNumber = Math.ceil(window.pageYOffset / 8 / 4) || 1;
-      } else if (window.pageYOffset >= 6000 && window.pageYOffset <= 7000) {
+      if (e.offset.y < 6000) {
+        imageNumber = Math.ceil(e.offset.y / 8 / 4) || 1;
+      } else if (e.offset.y >= 6000 && e.offset.y <= 7000) {
         imageNumber = 191;
-      } else if (window.pageYOffset > 7000 && window.pageYOffset < 11200) {
-        imageNumber = Math.ceil(window.pageYOffset / 8 / 4 / 4.8 + 150) || 1;
-      } else if (window.pageYOffset >= 11200) {
+      } else if (e.offset.y > 7000 && e.offset.y < 11200) {
+        imageNumber = Math.ceil(e.offset.y / 8 / 4 / 4.8 + 150) || 1;
+      } else if (e.offset.y >= 11200) {
         imageNumber = 223;
       }
       setImage(images[imageNumber]);

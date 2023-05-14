@@ -7,7 +7,7 @@ import inpoolLogo from '../../images/inpool.svg';
 
 import './first-pool.scss';
 
-const FirstPool = () => {
+const FirstPool = ({ smoothScroll }) => {
   const classNames = [
     '.first-pool-title',
     '.first-pool-text-1',
@@ -148,7 +148,7 @@ const FirstPool = () => {
       </div>
       <div className="first-pool first-pool-wrapper">
         <div className="first-pool-img-wrapper flex-center">
-          <PoolImage />
+          <PoolImage smoothScroll={smoothScroll} />
         </div>
       </div>
     </>
