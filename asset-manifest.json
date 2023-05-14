@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/inpool/static/css/main.78df71f0.css",
-    "main.js": "/inpool/static/js/main.9c8339cb.js",
+    "main.css": "/inpool/static/css/main.2a5c0a5b.css",
+    "main.js": "/inpool/static/js/main.3eab8d3d.js",
     "static/media/224.jpg": "/inpool/static/media/224.16b534bfd3cf1f2aae5f.jpg",
     "static/media/223.jpg": "/inpool/static/media/223.5308cb1c23d4954acc1d.jpg",
     "static/media/222.jpg": "/inpool/static/media/222.c482b1c01e76a00e6cb0.jpg",
@@ -328,12 +328,13 @@
     "static/media/136.jpg": "/inpool/static/media/136.de11e6a6105068da5e0c.jpg",
     "static/media/inpool.svg": "/inpool/static/media/inpool.668964ae5f6bf0585019c59d8d2a82e7.svg",
     "static/media/logo.svg": "/inpool/static/media/logo.ac70825595ca549372fd32b3da77dc59.svg",
+    "static/media/fav.svg": "/inpool/static/media/fav.d53dae20602373705e06ed51cb8da91c.svg",
     "index.html": "/inpool/index.html",
-    "main.78df71f0.css.map": "/inpool/static/css/main.78df71f0.css.map",
-    "main.9c8339cb.js.map": "/inpool/static/js/main.9c8339cb.js.map"
+    "main.2a5c0a5b.css.map": "/inpool/static/css/main.2a5c0a5b.css.map",
+    "main.3eab8d3d.js.map": "/inpool/static/js/main.3eab8d3d.js.map"
   },
   "entrypoints": [
-    "static/css/main.78df71f0.css",
-    "static/js/main.9c8339cb.js"
+    "static/css/main.2a5c0a5b.css",
+    "static/js/main.3eab8d3d.js"
   ]
 }
