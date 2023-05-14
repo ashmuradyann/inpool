@@ -32,15 +32,15 @@ const App = () => {
       }
     })
 
-    ScrollTrigger.scrollerProxy(document.querySelector(".first-pool-img-wrapper"), {
-      scrollTop(value) {
-        console.log(value)
-        if (arguments.length) {
-          smoothScroll.scrollTop = value;
-        }
-        return smoothScroll.scrollTop
-      }
-    })
+    // ScrollTrigger.scrollerProxy(document.querySelector(".first-pool-img-wrapper"), {
+    //   scrollTop(value) {
+    //     console.log(value)
+    //     if (arguments.length) {
+    //       smoothScroll.scrollTop = value;
+    //     }
+    //     return smoothScroll.scrollTop
+    //   }
+    // })
 
     smoothScroll.addListener(ScrollTrigger.update);
 
