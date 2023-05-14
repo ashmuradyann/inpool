@@ -1,4 +1,4 @@
-import { useState, useEffect, useLayoutEffect, useRef } from 'react';
+import { useLayoutEffect, useRef } from 'react';
 import gsap, { Power3 } from 'gsap';
 import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
 import Scrollbar from 'smooth-scrollbar';
@@ -7,6 +7,8 @@ import MouseFollower from 'mouse-follower';
 import Header from '../header/Header';
 import FirstPool from '../first-pool/FirstPool';
 import SecondPool from '../second-pool/SecondPool';
+
+gsap.registerPlugin(ScrollTrigger)
 
 const Main = () => {
   const wrapperRef = useRef();
@@ -17,12 +19,6 @@ const Main = () => {
     delegateTo: document,
     alwaysShowTracks: true,
   });
-
-  // useEffect(() => {
-  //   if (loaded.firstModelImages && loaded.secondModelImages) {
-  //     setLoadedAllImages(true)
-  //   }
-  // }, [loaded])
 
   useLayoutEffect(() => {
     ScrollTrigger.scrollerProxy(document.body, {

@@ -18,11 +18,11 @@ const PoolImage = ({ smoothScroll }) => {
       }
     }
 
-    images.forEach((picture, i) => {
-      let img = new Image();
-      img.src = picture
-      img.onload = () => console.log(i, "loaded")
-    });
+    // images.forEach((picture, i) => {
+    //   let img = new Image();
+    //   img.src = picture
+    //   img.onload = () => console.log(i, "loaded")
+    // });
 
     smoothScroll.addListener((e) => {
       let imageNumber =

@@ -1,14 +1,32 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useReducer, useRef, useState } from 'react';
+
+import preloaderLogo from '../../images/logos/fav.svg';
+
+import './preloader.scss'
 
 const Preloader = ({ setLoadedAllImages }) => {
+  const [imagesLoadedCount, setImagesLoadedCount] = useState(0);
+  const [progress, setProgress] = useState(0);
 
-  const [imagesLoadedCount, setImagesLoadedCount] = useState(0)
+  const preloaderRef = useRef()
+
+  const allImagesCount = 324;
 
   useEffect(() => {
-    if (imagesLoadedCount === 324) {
-      setLoadedAllImages(true)
+    if (progress === 100) {
+      preloaderRef.current.style.opacity = 0
+      setTimeout(() => {
+        setLoadedAllImages(true)
+      }, 300)
     }
-  }, [imagesLoadedCount])
+  }, [progress])
+
+  useEffect(() => {
+    if (imagesLoadedCount > 0) {
+      let percent = Number(((imagesLoadedCount / allImagesCount) * 100).toFixed(0));
+      setProgress(percent);
+    }
+  }, [imagesLoadedCount]);
 
   useEffect(() => {
     let images = [];
@@ -36,12 +54,22 @@ const Preloader = ({ setLoadedAllImages }) => {
     images.forEach((picture, i) => {
       const img = new Image();
       img.src = picture;
-      img.onload = () => console.log(i, 'loaded');
-      setImagesLoadedCount(prev => prev + 1)
+      img.onload = () => {
+        setImagesLoadedCount((prev) => prev + 1);
+      };
     });
   }, []);
 
-  return <div>Preloader</div>;
+  return (
+    <div ref={preloaderRef} className="preloader flex-column">
+      <div className="preloader-logo-wrapper flex-center">
+        <img src={preloaderLogo} alt="preloader-logo" />
+      </div>
+      <div className="preloader-progress flex-center">
+        <p>{progress}%</p>
+      </div>
+    </div>
+  );
 };
 
 export default Preloader;
